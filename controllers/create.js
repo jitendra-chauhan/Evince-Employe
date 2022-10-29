@@ -1,9 +1,11 @@
 const joi = require("joi");
+const logger = require("../logger");
 const employe = require("../model/employe");
+const alphanumeric = require("../utils/alphanumeric");
 
 const payload = {
   body: joi.object().keys({
-    name: joi.string().min(3).max(5).required(),
+    name: joi.string().min(2).max(128).required(),
     email: joi.string().email().required(),
     // employeeId: joi.string().min(10).max(10).required(),
     mobile: joi
@@ -25,7 +27,10 @@ async function handler({ body }) {
   const empModel = employe();
 //   console.log(body);
   let sendObject = {};
-  body.employeId = "ffg8546982";
+  
+  body.employeId = alphanumeric(10);
+
+  logger.info( "employeId :: ", body.employeId)
   const data = await empModel.create(body);
 //   console.log(data.dataValues);
   if (data && data.dataValues) {
