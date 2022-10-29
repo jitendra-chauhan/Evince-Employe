@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "f7058a26-422f-47f4-8617-83b86078f4e9",
+		"name": "Evince",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8123880"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "iamthenew",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sdggtd@ddsd.in",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "3582459852",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "female",
+							"description": "\"male\", \"female\", \"other\"",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "44",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/employe/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employe",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "hiii",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "d@dd.in",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "mobile",
+							"value": "3582369852",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "gender",
+							"value": "male",
+							"description": "\"male\", \"female\", \"other\"",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "50",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/employe/update",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employe",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/employe/list?page=1&limit=2&filter=name&sorting=true&sortingOrder=DESC&search=iamthe",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employe",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "filter",
+							"value": "name",
+							"description": "\"name\", \"employeId\", \"email\", \"mobile\", \"age\""
+						},
+						{
+							"key": "sorting",
+							"value": "true"
+						},
+						{
+							"key": "sortingOrder",
+							"value": "DESC",
+							"description": "\"DESC\", \"ASC\""
+						},
+						{
+							"key": "search",
+							"value": "iamthe"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
