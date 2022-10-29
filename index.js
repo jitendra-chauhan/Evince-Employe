@@ -1,7 +1,13 @@
 const http = require("http");
 const express = require("express");
-const { getFullPath, getAllFilesFromFolder, getFileExtension } = require("./utils/path");
-require('./connection/mySql')
+const {
+  getFullPath,
+  getAllFilesFromFolder,
+  getFileExtension,
+} = require("./utils/path");
+const logger = require("./logger");
+
+require("./connection/mySql");
 const app = express();
 
 // parse application/x-www-form-urlencoded
@@ -31,5 +37,5 @@ files.forEach((file) => {
 
 const server = http.createServer(app);
 server.listen(3000, function () {
-  console.log(`Server listening to the port 3000`);
+  logger.info(`Server listening to the port 3000`);
 });

@@ -1,5 +1,6 @@
 const sequelize = require("sequelize");
 const employe = require("../model/employe");
+const logger = require("../logger");
 
 const mySql = new sequelize("company", "root", "", {
   host: "localhost",
@@ -9,18 +10,18 @@ const mySql = new sequelize("company", "root", "", {
 mySql
   .authenticate()
   .then(() => {
-    console.log("Connection has been established successfully! ");
+    logger.info("Connection has been established successfully! ");
   })
   .catch((error) => {
-    console.error("unble to connect", error);
+    logger.error("unble to connect", error);
   });
 
 employe(mySql);
 mySql
   .sync()
   .then(() => {
-    console.log("table created successfully!");
+    logger.info("table created successfully!");
   })
   .catch((error) => {
-    console.error("Unable to create table : ", error);
+    logger.error("Unable to create table : ", error);
   });

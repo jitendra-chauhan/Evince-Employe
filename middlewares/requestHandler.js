@@ -2,6 +2,7 @@ const httpStatus = require("http-status");
 const pick = require("../utils/pick");
 const joiValidate = require("../utils/joiValidate");
 const ApiError = require("../utils/ApiError");
+const logger = require("../logger");
 
 const handleAPICall = (controller) => async (req, res, next) => {
   try {
@@ -11,9 +12,6 @@ const handleAPICall = (controller) => async (req, res, next) => {
 
       const { value, error, errorMessage } = joiValidate(validSchema, object);
       let stack = "";
-    //   if (error && error.details[0].type === "string.email") {
-    //     stack = "email";
-    //   }
       
       if (error)
         return next(new ApiError(httpStatus.BAD_REQUEST, errorMessage, stack));
@@ -35,7 +33,7 @@ const handleAPICall = (controller) => async (req, res, next) => {
       next();
     }
   } catch (err) {
-    console.log("err.toString() : ", err);
+    logger.error("err.toString() : ", err);
     next(
       err instanceof ApiError
         ? err

@@ -13,7 +13,7 @@ function model(sequelize) {
       validate: { isEmail: true },
       allowNull: false,
     },
-    employeeId: {
+    employeId: {
       type: DataTypes.STRING,
       validate: { isAlphanumeric: true, len: [10] },
       allowNull: false,
@@ -29,12 +29,12 @@ function model(sequelize) {
     },
     age: {
       type: DataTypes.INTEGER,
-      validate: { max: 18, min: 60 },
+      validate: { max: 60, min: 18 },
       allowNull: false,
     },
     anotherMobile: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   });
 
