@@ -1,5 +1,5 @@
 const level = require('./config/level');
-const logger = require('./logger');
+const logger = require('./loggerExp');
 
 /**
  * exported functions

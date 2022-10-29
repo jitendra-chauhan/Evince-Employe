@@ -5,7 +5,7 @@ function model(sequelize) {
   employe = sequelize.define("employes", {
     name: {
       type: DataTypes.STRING,
-      validate: { len: [2, 10] },
+      validate: { len: [2, 128] },
       allowNull: false,
     },
     email: {
