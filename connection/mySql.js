@@ -1,8 +1,10 @@
 const sequelize = require("sequelize");
 const employe = require("../model/employe");
 const logger = require("../logger");
+const config = require("../config");
 
-const mySql = new sequelize("company", "root", "", {
+
+const mySql = new sequelize(config.dataBase, config.user, config.password, {
   host: "localhost",
   dialect: "mysql",
 });
